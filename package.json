@@ -1,0 +1,13 @@
+{
+  "name": "manual-ecr-bot",
+  "version": "1.0.0",
+  "description": "Bot de Slack para consultar manuales ECR",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@slack/bolt": "^3.17.0",
+    "dotenv": "^16.4.5"
+  }
+}
