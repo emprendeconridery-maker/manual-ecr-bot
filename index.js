@@ -19,12 +19,15 @@ const app = new App({
   appToken: process.env.SLACK_APP_TOKEN,
 });
 
-// Cargar el manual al iniciar el servidor
+// Cargar el manual al iniciar el servidor con verificación
 let cachedManualText = "";
 try {
   const filePath = path.join(__dirname, 'manual.txt');
   if (fs.existsSync(filePath)) {
     cachedManualText = fs.readFileSync(filePath, 'utf8');
+    console.log(`✅ Manual cargado correctamente. Caracteres totales: ${cachedManualText.length}`);
+  } else {
+    console.error(`❌ Archivo manual.txt no encontrado en la ruta: ${filePath}`);
   }
 } catch (error) {
   console.error("Error al leer el manual:", error);
@@ -36,8 +39,8 @@ const normalizeText = (text) => {
 
 app.event('app_mention', async ({ event, say }) => {
   try {
-    // CAMBIO CLAVE: Dividimos el manual usando la línea de símbolos "====" como delimitador exacto de secciones
-    const blocks = cachedManualText.split(/={5,}/).filter(b => b.trim().length > 0);
+    // CORRECCIÓN: Usamos [=═]{5,} para detectar tanto el signo '=' como las líneas de doble barra '═'
+    const blocks = cachedManualText.split(/[=═]{5,}/).filter(b => b.trim().length > 0);
     
     const stopWords = ['el', 'la', 'los', 'las', 'un', 'una', 'de', 'del', 'a', 'en', 'y', 'o', 'que', 'es', 'por', 'con', 'para', 'cuanto', 'cuantos', 'cual', 'cuales', 'donde', 'como', 'su', 'sus', 'al', 'me', 'le', 'lo', 'hacer', 'hace', 'si'];
 
@@ -79,7 +82,6 @@ app.event('app_mention', async ({ event, say }) => {
     let reply = `¡Hola <@${event.user}>!\n\n`;
 
     if (maxScore > 0 && bestBlock) {
-      // Limpiamos espacios sobrantes al inicio/fin del bloque completo seleccionado
       reply += bestBlock.trim();
     } else {
       reply += "⚠️ No encontré una sección específica para esa consulta en el manual. Prueba con palabras más directas (ej: *deposito*, *siniestro*, *taller*).";
