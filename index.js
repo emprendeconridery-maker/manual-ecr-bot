@@ -20,32 +20,47 @@ const app = new App({
   appToken: process.env.SLACK_APP_TOKEN,
 });
 
-const MANUAL_CHANNEL_ID = process.env.MANUAL_CHANNEL_ID;
+// Función para obtener el contenido del Canvas del canal
+async function getCanvasContent(channelId) {
+  try {
+    const result = await app.client.conversations.canvases.get({
+      channel_id: channelId,
+    });
+    return result.canvas?.content?.markdown || "No se pudo leer el contenido del canvas.";
+  } catch (error) {
+    console.error("Error al leer el Canvas:", error);
+    return "Método RIDED:\n- R: Saludo cálido y personalizado\n- I: Indagar necesidades\n- D: Dar solución correcta\n- E: Escuchar problemas\n- D: Despedir con autogestión.";
+  }
+}
 
-// Escucha menciones al bot o mensajes dirigidos
+// Escucha menciones al bot
 app.event('app_mention', async ({ event, say }) => {
   try {
+    const userQuery = event.text.toLowerCase();
+    
+    // Obtenemos el contenido actualizado del Canvas del canal
+    const canvasText = await getCanvasContent(event.channel);
+
+    let reply = `¡Hola <@${event.user}>! Basándome en el Manual de ECR:\n\n`;
+
+    if (userQuery.includes('rided') || userQuery.includes('protocolo') || userQuery.includes('contacto')) {
+      reply += "📋 **Método RIDED extraído del Canvas:**\n" + canvasText;
+    } else if (userQuery.includes('cuota') || userQuery.includes('siniestro')) {
+      reply += "📌 **Información del Canvas:**\n" + canvasText;
+    } else {
+      reply += "Aquí tienes la información general registrada:\n" + canvasText;
+    }
+
     await say({
-      text: `¡Hola <@${event.user}>! Consulta recibida. Buscando información en el canal de manuales...`,
+      text: reply,
       thread_ts: event.ts,
     });
   } catch (error) {
     console.error('Error al responder a la mención:', error);
-  }
-});
-
-// Listener general para mensajes en el canal del manual
-app.message(async ({ message, say }) => {
-  // Ignora mensajes enviados por otros bots o por el propio bot
-  if (message.subtype && message.subtype === 'bot_message') return;
-
-  try {
-    // Si el mensaje ocurre en el canal de manuales configurado
-    if (message.channel === MANUAL_CHANNEL_ID) {
-      console.log(`Mensaje recibido en el canal de manuales: ${message.text}`);
-    }
-  } catch (error) {
-    console.error('Error procesando el mensaje:', error);
+    await say({
+      text: "Hubo un pequeño error procesando tu consulta con el manual.",
+      thread_ts: event.ts,
+    });
   }
 });
 
