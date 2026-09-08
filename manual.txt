@@ -1,0 +1,566 @@
+Método RIDED – Protocolo de contacto
+
+R – Recibir: Saludo cálido y personalizado al conductor.
+
+I – Indagar: Comprender las necesidades de quien nos contacta.
+
+D – Dar: Solución correcta y oportuna al caso.
+
+E – Escuchar: Atender problemas, sugerencias y preocupaciones.
+
+D – Despedir: Cierre cálido con invitación a autogestionarse.
+
+Novedades y últimas actualizaciones
+
+Estructura de Siniestros de Flota y Enlace Legal: Se actualizó el formulario a "Llena el formulario de siniestros" y se integró el Formulario Legal directo. La notificación a Slack se reestructuró con campos fijos (ID, Nombre, Placa, Ticket, Tránsito, Seguro, Form) y se incorporaron guías de movilización final (Operativo/No operativo).
+
+Nueva Sección: Ingreso a Taller y Fallas Mecánicas: Flujo completo con sondeos en 3 fases: bienvenida y captura de datos, diagnóstico de movilidad en carretera (Sección 02) y mapeo técnico detallado de síntomas (Sección 03). Incluye cajas de copiado rápido de scripts de chat en tiempo real.
+
+Normas y Conducta del Equipo ATC
+
+Prohibido usar notas de voz o stickers en comunicaciones con conductores.
+
+No utilizar términos bancarios como "wallet" o "billetera".
+
+El conductor no da vuelto en efectivo; si el cliente tiene más de 20 viajes, se puede dar vuelto por pago móvil.
+
+No se envían capturas de pantalla a conductores bajo ningún concepto.
+
+Mensaje estándar para aspirantes: "¡Hola! Una vez completes el formulario de inscripción, tu registro se realiza con éxito. Si cumples con los requisitos, te contactaremos para la entrevista en Emprende Con Ridery 🚗."
+
+Contrato de Cuentas en Participación y Comodato – Marco Legal y Operativo
+
+Asociante (Operadora de App): Desarrollos Tecnológicos Ridery, C.A. (DTR) – RIF: J-500969210.
+Propietaria de la Flota: Emprende con Ridery, C.A. (ECR) – RIF: J-507289567.
+Conductor / Comodatario: Asociado Autónomo.
+
+Condiciones económicas:
+
+Depósito en Garantía (Anexo C): Carro $400 · Moto $50 (reembolsable a 30 días hábiles).
+
+Reparto de Participación Neta: 71% Conductor · 20% DTR · 9% ECR.
+
+Límite de Recorrido por Período: 6.500 km (4 semanas). Penalización: $0.09 USD/km excedente.
+
+Aporte de Entrada: $0.00 USD (no reembolsable).
+
+Aporte Periódico (Desgaste Mínimo Diario): $7.39 USD/día (reducción proporcional por días inoperativo en taller).
+
+Mantenimiento y taller:
+
+Carros: Mantenimiento preventivo cada 5.000 km (cita con 1.200 km de anticipación).
+
+Motos: Mantenimiento cada 1.000 km (cita con 500 km de anticipación).
+
+Reasignación: Si el vehículo va a mantenimiento prolongado, el conductor pasa a proceso de reasignación.
+
+Garantía de posesión: ECR garantiza al menos 21 días no continuos por período de 4 semanas. Restitución en 6 horas.
+
+Causales de terminación anticipada (Cláusula 14):
+
+Más de 3 alertas de manejo imprudente en una semana.
+
+Más de 1 siniestro.
+
+Más de 2 infracciones de velocidad.
+
+Desconexión intencional del GPS.
+
+Transitar fuera de Geocerca sin autorización.
+
+Conducir bajo efecto de alcohol o drogas.
+
+Omitir denuncia de robo/hurto ante el Ministerio Público en 48 horas.
+
+Documentos falsos o alterados.
+
+Modificar el vehículo sin permiso.
+
+No asistir a mantenimientos o reparaciones requeridas.
+
+Aspirantes – Proceso de Ingreso
+
+Postulación: Formulario oficial: https://docs.google.com/forms/d/e/1FAIpQLSfD4dSLfmPyG1vB8yxGFtpvU6NbTrY4JDdfaWSRJHjxj2eGqg/viewform
+
+Portal de Consulta de Aspirantes: https://consultoratcecr.netlify.app/ (consulta con cédula de identidad).
+
+Proceso interno:
+
+Recibir chat y dar bienvenida.
+Solicitar cédula de identidad.
+Confirmar en el portal de consulta web.
+Notificar al conductor su estatus (semáforo del portal).
+Derivar al canal #aspirantes-documentos en Slack si lleva mucho tiempo esperando.
+Cerrar chat si el aspirante está satisfecho.
+Equipo de Adquisición y Activación:
+
+Coordinador: Jesús Romero
+
+Especialista de Ingresos: María Gabriela Delgado
+
+Analistas: Michelle Rosales, Daniel Piñero
+
+Etiquetado en Slack:
+
+Casos de aspirantes (dudas o solicitudes): etiquetar a Jesús Romero.
+
+Gestión de documentación: etiquetar a María Gabriela Delgado.
+
+Aportes diarios (Cuotas) – Mantenimiento y Cuotas
+
+Propósito: El aporte diario se destina exclusivamente al mantenimiento preventivo y correctivo del vehículo.
+
+Montos por modelo:
+
+Dena (sedán de lujo): $48.00/día
+
+Tara (sedán de lujo): $48.00/día
+
+Changan: $51.00/día
+
+MG: $51.00/día
+
+Exoneraciones aplican solo en casos de:
+
+Vehículo llega a la base y no fue pausado en el momento.
+Conductor bloqueado o suspendido por causas externas.
+Fallas consecutivas del vehículo.
+Encargada de Bonificaciones: Victoria Garcia.
+
+Canal de Slack para reportes: #bonificaciones-gestion.
+
+Formato de reporte:
+
+text
+ID:
+Placa:
+Fecha de solicitud para bonificación:
+Contexto:
+Siniestros – Gestión de Accidentes
+Protocolo de Siniestros: Priorizar la seguridad física y psicológica del conductor y pasajeros; actuar con calma, empatía y rapidez.
+
+Preguntas de sondeo (Caja de Herramientas – copiar y pegar):
+
+Contacto y datos: "Dime tu ID de conductor y número de teléfono para contacto inmediato."
+
+Vehículo y ubicación: "Indícame tu ID, Placa y mándame la ubicación actual en tiempo real de donde estás."
+
+Cliente en viaje: "En caso de estar con un cliente en el viaje, por favor facilítame el número de contacto de ellos."
+
+Salud y entorno: Preguntar: ¿Cómo te encuentras? ¿Estás solo en el vehículo? ¿Cómo se encuentran las otras personas (si aplica)? ¿Hay un tercero involucrado?
+
+Detalle de hechos: "Dame un detalle completo de lo sucedido."
+
+Directrices críticas de tránsito:
+
+El conductor no debe moverse del sitio del accidente; debe esperar el levantamiento de tránsito.
+
+Es mandatorio hacer el levantamiento, haya o no lesionados.
+
+Si las autoridades no asisten, el conductor debe gestionar una declaración jurada.
+
+Procedimiento de atención integral (6 pasos):
+
+Recepción inicial – usar las preguntas de sondeo.
+
+Dar instrucciones de tránsito (no moverse, esperar autoridades).
+
+Llenar el formulario de siniestros y, si aplica, el formulario legal:
+
+Formulario siniestros: https://forms.gle/3DTyvUSgCxWmAovi8
+
+Formulario legal: https://docs.google.com/forms/d/e/1FAIpQLSeEZts51ox23UpcpKTumTKcP_L0u1rypapAtSdNJLfeVJ8fMg/viewform
+
+Notificación automática en Slack al registrar en el Portal de Ingresos ECR: https://portalecringresos.ai.studio/
+
+Finalización y traslado:
+
+Vehículo operativo: conductor se traslada a taller/base.
+
+Vehículo no operativo: se coordina grúa.
+
+Llegada a base: llenar ficha en el portal de orden de ingreso y cambiar estatus a "ingreso a taller": https://portal-ecr-orden-de-ingreso-89426673474.us-east1.run.app/
+
+Reglas importantes:
+
+No emitir juicios de valor sobre quién tuvo la culpa.
+
+Acompañar al conductor recomendándole permanecer en un lugar seguro.
+
+Ingreso a Taller y Fallas Mecánicas
+Protocolo de ingreso:
+
+Registrar obligatoriamente en el portal de orden de ingreso: https://portal-ecr-orden-de-ingreso-89426673474.us-east1.run.app/
+
+Fallas que ameritan asistencia inmediata al taller:
+
+Pérdida de potencia (bujías, corcoveo, vibración, falla de aceleración).
+
+Falla de aire acondicionado (no enfría).
+
+Fallas de embrague (no aplica velocidades, ruido, sale muy arriba).
+
+Recalentamiento (sube la temperatura).
+
+Ruidos fuertes en motor o tren delantero.
+
+Luces: no encienden altas/bajas, luz de motor o testigos encendidos (si presenta fallas; si no, solicitar cita).
+
+Glosario de fallas y matriz de diagnóstico:
+
+ESC System Fault: Error de sensor, pérdida de tracción por neumáticos. Puede continuar, salvo vibraciones al acelerar (ir a taller).
+
+Check Engine: Luz fija → puede prestar servicio, reportar. Luz titilando → apagar y solicitar grúa urgente.
+
+Presión de Aceite: Luz fija → puede seguir si no hay botadura. Luz titilando → apagar y solicitar grúa.
+
+Temperatura alta: Riesgo al motor; debe ir a taller o solicitar grúa.
+
+Excepciones estéticas:
+
+Detalle leve (ej. raspón bajo) → puede seguir prestando servicio.
+
+Daño con riesgo estructural (ej. capó descuadrado) → NO puede prestar servicio.
+
+Regla de oro: si tiene Check Engine + olor a quemado, falta un retrovisor, sin luces o falla completa de A/A → NO puede prestar servicio.
+
+Respuestas rápidas para chat (sondeo mecánico):
+
+Sección 01 – Bienvenida y datos básicos: "Hola, lamento el inconveniente con el vehículo. Para asistirte de inmediato y coordinar el ingreso al taller, por favor confírmame tu ID de conductor y la placa del vehículo."
+
+Sección 02 – Diagnóstico de movilidad: "Para coordinar el ingreso al taller, necesito saber el estado actual del vehículo: ¿El vehículo se encuentra encendido y en condiciones de rodar por sus propios medios, o ha sido necesario solicitar una grúa para su traslado?"
+
+Sección 03 – Reporte de síntomas: "Ahora, para el reporte técnico, por favor descríbame con sus palabras qué es lo que está sintiendo o escuchando en el carro: ¿Desde hace cuánto tiempo presenta esta falla? ¿Hay alguna luz de advertencia encendida en el tablero en este momento? ¿La falla ocurre siempre o solo en alguna situación específica? ¿Hay algún otro detalle, ruido extraño o pérdida de algún fluido que haya notado?"
+
+Pasos para gestionar el reporte (8 pasos):
+
+Recepción de la falla o grúa.
+
+Sondeo inicial (Sección 01).
+
+Evaluar movilidad (Sección 02).
+
+Recabar síntomas técnicos (Sección 03).
+
+Ingreso formal al portal de orden de ingreso.
+
+Llegada a base: llenar ficha en el portal y cambiar estatus a "ingreso a taller".
+
+Actualizar estatus en Odoo y adjuntar ficha.
+
+Reportar en Slack: #ingresos-egresos-taller-soporte-ecr.
+
+Encargados del área:
+
+Coordinador de Taller: Oswaldo Goncalves.
+
+Especialista de taller ECR: Cleiberth Aranguren.
+
+Solicitar Grúa – Auxilio Vial
+Flujo operativo con Tugruero:
+
+Confirmar aseguradora del vehículo: Arys (La Mundial) o Seguros Venezuela. Si es La Mundial, primero confirmar con Arys si tiene servicio; si no, canalizar con Tugruero.
+
+Contactar a Tugruero vía WhatsApp: +58 414-4783760 (identificarse como personal de Emprende con Ridery).
+
+Identificación en el bot de solicitud: Siempre identificarse como personal de ECR.
+
+Enviar ficha de solicitud con el formato exacto:
+
+text
+Nombre apellido:
+Compañía que lo respalda (agencia): Emprende Con Ridery
+Servicio que necesite:
+Estado del país:
+Marca:
+Modelo:
+Año:
+Color:
+Placa:
+Falla:
+Localización:
+Destino:
+Celular:
+Notificar al conductor: pasarle los datos del operador de grúa; que nos notifique cuando el gruero esté en el sitio y envíe foto comprobatoria.
+
+Confirmación de arribo a la base: verificar mediante fotografía.
+
+Generar orden de ingreso a taller: https://portalecringresos.ai.studio/
+
+Congelamiento de cuota y actualización en Odoo: paralizar cuota, adjuntar ficha, cambiar estatus a "Ingreso a taller".
+
+Mantenimiento – Inspección de Flota
+Protocolo contractual (Anexo B):
+
+Carros: Mantenimiento preventivo cada 5.000 km; cita con 1.200 km de anticipación.
+
+Motos: Mantenimiento preventivo cada 1.000 km; cita con 500 km de anticipación.
+
+Reasignación: Si el vehículo va a mantenimiento prolongado (varios días o sin fecha), el conductor pasa a proceso de reasignación.
+
+Reglas de mantenimiento:
+
+Citas: el conductor debe acudir puntualmente; si no puede, reportar para reagendamiento.
+
+Reducción de cuota durante días inoperativos en taller autorizado.
+
+Defectos de fábrica y desgaste normal asumidos por la cuenta.
+
+Daños por impericia o negligencia serán asumidos por el conductor (descuento del Depósito en Garantía).
+
+Salida de Geocerca – Control de Ruta
+Preguntas frecuentes:
+
+¿Puede salir sin viaje en la App? No, es necesario tener un viaje activo. Excepción: generar incidencia detallando la ruta.
+
+¿Qué pasa si sale sin notificar? Se aplica incidencia "IDA por VUELTA" calculada sobre flota Premium.
+
+Geocercas operativas por ciudad:
+
+Caracas: Distrito Capital, Chacao, Baruta, Sucre, El Hatillo, Vargas (Catia La Mar, Maiquetía, Caribia), Eje Guarenas-Guatire hasta Santa Lucía, Los Teques, El Junquito, Macarao, Hoyo de la Puerta.
+
+Valencia: Valencia Capital, San Diego, Guácara, Las Trincheras, Tocuyito, Campo de Carabobo, Taguanes, Cachinche, Güigüe, Tacarigua, Los Naranjos, Los Mangos.
+
+Maracay: Maracay Capital, Cagua, Turmero, La Victoria, El Consejo, Las Tejerías, El Limón, El Jarillo, Colonia Tovar, Villa de Cura, El Charal, San Juan de los Morros, San Sebastián, Altagracia de la Montaña, San Casimiro, Parapara.
+
+Maracaibo: Maracaibo Capital, San Francisco, La Ensenada, La Concepción, Km 48, Santa Rita, Puente Rafael Urdaneta, Los Puertos de Altagracia, Santa Cruz de Mara, San Rafael de El Mojan, Tamare, Cabimas, Punta Gorda.
+
+Mapas interactivos disponibles en la sección con delimitaciones de cada geocerca.
+
+Material de Apoyo del Equipo
+Portal oficial: https://admincx.vercel.app/material-apoyo
+Contiene guías operativas, formatos, scripts de atención, infografías y documentos oficiales del equipo ATC y todas las células.
+
+Estatus por Reembolso – Gastos y Reembolsos
+Consulta online: https://delightful-custard-c4e34a.netlify.app/
+
+Plazos contractuales (Cláusulas 6, 7 y Anexo C):
+
+Cierre de período: cada 4 semanas.
+
+Pago de saldo/utilidades: 3 días calendario.
+
+Reintegro de pérdidas: 5 días hábiles.
+
+Gastos comunes cargados a la cuenta:
+
+Comisiones bancarias, publicidad/marketing, pólizas de seguro, mantenimiento preventivo, gastos legales generales, aporte por desgaste mínimo ($47.39 USD/día).
+
+Costos exclusivos NO reembolsables por parte del conductor:
+
+Combustible y lavado, cauchos/neumáticos, remolque y retención de tránsito, trámites personales, llaves y documentos, multas de tránsito, aportes obligatorios, daños por impericia o negligencia.
+
+Costos exclusivos de DTR: Sueldos de personal, programación/actualización de App, sanciones administrativas propias.
+Costos exclusivos de ECR: Custodia/estacionamiento, sueldos de personal ECR, repuestos por desgaste normal.
+
+Depósito en Garantía:
+
+Monto: Carro $400 · Moto $50.
+
+Devolución: 30 días hábiles.
+
+Exceso de kilometraje: se descuenta $0.09 USD/km por encima de 6.500 km.
+
+Emergencias SOS – Protocolo Crítico
+
+Prioridad absoluta: Atender de inmediato.
+
+Pasos:
+
+Recibir notificación SOS (Zendesk o Admin), identificar trip ID y ubicación.
+Llamar al 911 y a unidades de emergencia.
+Llenar el formulario de siniestros: https://forms.gle/3DTyvUSgCxWmAovi8
+Reportar en Slack (manejo de emergencia).
+Consultar directorio de emergencias según estado/municipio (disponible en el sistema).
+Fallas y Diagnósticos de Vehículos – Guía Técnica
+Glosario de fallas comunes:
+
+ESC System Fault: Sensor de pérdida de tracción por presión de neumáticos. Puede continuar, salvo vibraciones al acelerar (ir a taller).
+
+Check Engine: Luz fija → reportar y seguir; luz titilando → apagar y solicitar grúa urgente.
+
+Presión de Aceite: Luz fija → seguir si no hay botadura; luz titilando → apagar y solicitar grúa.
+
+Temperatura alta: Riesgo al motor; acudir a taller o solicitar grúa.
+
+Excepciones estéticas:
+
+Raspones leves → puede prestar servicio.
+
+Daño estructural (capó descuadrado) → NO puede prestar servicio.
+
+Sin retrovisor, sin luces, falla completa de A/A → NO puede prestar servicio.
+
+Matriz de fallas y diagnósticos (resumen):
+
+Falla	¿Taller Inmediato?	¿Cita?
+Tren Delantero	NO	SÍ
+Frenos	SÍ	NO
+Motor (fallas graves)	SÍ	NO
+Motor (pérdida de potencia)	SÍ	NO
+Transmisión	SÍ	NO
+Sistema de Enfriamiento	SÍ	NO
+Problemas Eléctricos (arranque)	SÍ	NO
+Problemas Eléctricos (menores)	NO	SÍ
+Aire Acondicionado	NO	SÍ
+Neumáticos	SÍ	NO
+Carrocería y accesorios	NO	SÍ
+Directorio de Oficinas – Cobertura Nacional
+
+Caracas (Distrito Capital):
+
+Base Emprende con Ridery: 24/7 activo. Recepción de vehículos con fallas y grúas. Atención directa al conductor. Google Maps
+
+Taller Mantenimiento Express: Solo con citas, horarios administrativos. Google Maps
+
+Maracay (Aragua):
+
+Oficina ATC: Atención al conductor de 8:30 AM a 5:30 PM; recepción de vehículos con fallas de 5:30 PM a 8:00 AM. Google Maps
+
+Taller TECMOTORS: Horario 8:30 AM - 5:30 PM, atiende fallas por disponibilidad (no trabaja con cita). Google Maps
+
+Valencia (Carabobo):
+
+Oficina ATC Valencia: 24/7 activo, recepción de vehículos. Google Maps
+
+Maracaibo (Zulia):
+
+Oficina ATC Maracaibo: 24/7 activo, recepción de vehículos. Google Maps
+
+Preguntas Frecuentes (FAQ) – Consultas Frecuentes
+
+1. Grúas / Asistencia Vial
+
+¿Qué hacer si se espicha un caucho? Contactar a Tugruero; no solicitar grúa a base salvo que sea última opción.
+
+¿Llaves dentro del vehículo? Si está apagado, buscar copias en taller (horario administrativo). Si está encendido, contratar cerrajero por cuenta del conductor.
+
+Traslado a sede de tránsito con grúa: El conductor debe asumir el pago; solo usar grúa si vehículo no operativo o hay lesionados.
+
+Conductor fallece: Coordinar traslado en grúa o personal de ECR se traslada a buscar el vehículo.
+
+¿Tugruero traslada al módulo policial? No.
+
+¿Grúa para vehículo sin placa? Sí, pero el conductor debe denunciar pérdida de placa.
+
+Conductor impaciente por demora de grúa: Notificar que la gestión es con proveedor externo y puede demorar.
+
+2. Siniestros / Accidentes
+
+Cancelar viaje si el conductor se accidenta: Sí, debe cancelarse aunque falten 500 metros.
+
+¿Siempre llenar formulario de siniestros? Sí.
+
+Entregar datos del rider a un usuario que denuncia? No; primero conversar con el conductor.
+
+Rayones por tercero: El conductor debe hacer declaración jurada y acudir a base en horario administrativo.
+
+Estatus de cobro de siniestro: El conductor debe esperar a ser contactado.
+
+Cancelar viaje corporativo si rider accidentado: Sí, se cancela.
+
+Informe de siniestro con información disponible: Sí, lo importante es registrarlo.
+
+3. Cuotas, pagos y ajustes
+
+Justificativos médicos para exoneración: Reportar en canal #exoneraciones de cuotas.
+
+Pago a la App no registrado: Confirmar con captura; si persiste, abono manual desde Office.
+
+Permiso para dejar vehículo en base y exonerar cuota: Solo si autorizado en el momento; si excede 24 horas, se reasigna.
+
+Viaje personal a la playa: No está permitido (contrato).
+
+Queja por exceso de kilometraje: Orientar que el cálculo es por GPS; si hay error, reportar en #exoneraciones.
+
+Robo de celular sin vehículo en base: No aplica exoneración.
+
+¿Cuándo se cobra la cuota? Diariamente a las 11:55 PM.
+
+Depósito de aspirante sin dinero el día de la cita: Consultar si se están recibiendo depósitos en ese momento.
+
+Exceso de kilometraje con entrega el 4 de marzo: El conductor tiene 26 días (5.633 km disponibles).
+
+Rebaja de cuota por entrega a las 3 PM: Sí, prorrateo automático.
+
+Queja por falta de viajes: Indicar usar mapa de calor para zonas con mayor demanda.
+
+Cuenta bloqueada por deuda con error en la App: Se puede abonar manualmente desde Office.
+
+4. Multas y documentos vehiculares
+
+Renovación de póliza vencida: El conductor debe acudir a la base a retirar el documento actualizado.
+
+5. Reasignación / retiro de vehículo / taller
+
+Fallas de batería: Acudir al taller y llenar formulario de fallas.
+
+Falta de alineación: Solo se realiza en Caracas.
+
+Conductor accidentado con vehículo a taller: Dar ingreso a taller de inmediato.
+
+Vehículo en taller externo por latonería: Atendido directamente por equipo de taller.
+
+Conductor sale del taller: Se puede activar.
+
+Cambio o reasignación de vehículo: Sí, entra en proceso de reasignación.
+
+6. Reportes a Slack / Plataforma / escalamiento
+
+Validar estatus de siniestro: Esperar respuesta del equipo de siniestros.
+
+Vehículo en otro estado sin respuesta del conductor: Escalar para apagar el vehículo.
+
+Enviar captura de delimitación de geocerca por Slack: No, es confidencial.
+
+Luces quemadas: Acudir a base en horario de taller y llenar formulario.
+
+7. Formularios y procesos internos (ODOO, Zendesk, forms)
+
+Citas para rotulado: Se reportan en el momento de la cita de mantenimiento.
+
+Cambio de número telefónico del conductor: Solo en oficinas de Atención al Conductor.
+
+9. Reposos, permisos y ausencias del conductor
+
+Permiso para viaje personal a la playa: No autorizado, salvo traslado urgente evaluable.
+
+Permiso de 3 días por recibir a hijos: Si no asiste a la cita, se cobra cuota; si solicita más días, pasa a reasignación.
+
+10. Seguros y coberturas
+
+Reportar siniestro al seguro: Realizado por el especialista de siniestros.
+
+Tercero se dio a la fuga: El conductor debe hacer declaración jurada.
+
+11. Bloqueo / desbloqueo de rider
+
+Viaje fuera de geocerca con bloqueo por efectivo: Generar incidencia por salida de geocerca.
+
+**Saldo -$50, bloqueado, con viajes en efectivo:** Si saldo es menor a -$60, solicitar apoyo a Shafik Awad para liberar efectivo.
+
+¿Se bloquea por cargar gasolina? No.
+
+Usuario denuncia que conductor la bloqueó: Indicar que el equipo se pondrá en contacto con el conductor.
+
+Links de Interés – Accesos Directos
+
+Ridery Admin: https://admin.ridery.app/dashboard (Operaciones & Flota)
+
+Dispatcher: https://dispatcher.ridery.app/dashboard (Operaciones & Despacho)
+
+HQ Rentals: https://ridery.us4.hqrentals.app (Gestión de Flota)
+
+Portal de Ingresos ECR: https://portalecringresos.ai.studio/ (Gestión de Flota)
+
+Consultor de Aspirantes: https://consultoratcecr.netlify.app/ (Gestión de Aspirantes)
+
+Admin CX: https://admincx.vercel.app/ (Atención & Soporte)
+
+Slack Ridery: https://ridery-workspace.slack.com/archives/C09AMH89USD (Comunicación Interna)
+
+Office: https://oficina.ridery.app/ (Gestión Operativa)
+
+Odoo ERP: https://ridery-odio.ridery.app/web#cids=13&action=menu (Gestión Corporativa)
+
+Estatus de Reembolso: https://delightful-custard-c4e34a.netlify.app/ (Atención & Finanzas)
