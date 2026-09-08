@@ -20,16 +20,25 @@ const app = new App({
   appToken: process.env.SLACK_APP_TOKEN,
 });
 
-// Función para obtener el contenido del Canvas del canal
+// Función mejorada para obtener y depurar el contenido del Canvas del canal
 async function getCanvasContent(channelId) {
   try {
     const result = await app.client.conversations.canvases.get({
       channel_id: channelId,
     });
-    return result.canvas?.content?.markdown || "No se pudo leer el contenido del canvas.";
+    
+    // Imprimimos la estructura completa en los logs de Render para inspeccionarla
+    console.log("Estructura del Canvas recibida:", JSON.stringify(result, null, 2));
+
+    const canvasData = result.canvas;
+    if (canvasData && canvasData.document_content) {
+      return canvasData.document_content; 
+    }
+    
+    return result.canvas?.content?.markdown || JSON.stringify(result, null, 2);
   } catch (error) {
-    console.error("Error al leer el Canvas:", error);
-    return "Método RIDED:\n- R: Saludo cálido y personalizado\n- I: Indagar necesidades\n- D: Dar solución correcta\n- E: Escuchar problemas\n- D: Despedir con autogestión.";
+    console.error("Error detallado al leer el Canvas:", error);
+    return "No se pudo extraer la información del Canvas. Revisa los logs de Render para más detalles.";
   }
 }
 
@@ -42,14 +51,7 @@ app.event('app_mention', async ({ event, say }) => {
     const canvasText = await getCanvasContent(event.channel);
 
     let reply = `¡Hola <@${event.user}>! Basándome en el Manual de ECR:\n\n`;
-
-    if (userQuery.includes('rided') || userQuery.includes('protocolo') || userQuery.includes('contacto')) {
-      reply += "📋 **Método RIDED extraído del Canvas:**\n" + canvasText;
-    } else if (userQuery.includes('cuota') || userQuery.includes('siniestro')) {
-      reply += "📌 **Información del Canvas:**\n" + canvasText;
-    } else {
-      reply += "Aquí tienes la información general registrada:\n" + canvasText;
-    }
+    reply += canvasText;
 
     await say({
       text: reply,
