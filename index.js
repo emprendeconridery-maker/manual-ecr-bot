@@ -1,4 +1,16 @@
 const { App } = require('@slack/bolt');
+const http = require('http');
+
+// Puerto dinámico asignado por Render o por defecto 3000
+const PORT = process.env.PORT || 3000;
+
+// Servidor HTTP simple para cumplir con el requisito de puertos de Render
+http.createServer((req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
+  res.end('Bot de Manuales ECR activo\n');
+}).listen(PORT, () => {
+  console.log(`Servidor HTTP escuchando en el puerto ${PORT}`);
+});
 
 // Inicialización de la aplicación Slack Bolt en Modo Socket
 const app = new App({
