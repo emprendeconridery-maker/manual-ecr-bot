@@ -1,51 +1,26 @@
-const { App } = require('@slack/bolt');
-const http = require('http');
-const fs = require('fs');
-const path = require('path');
-
-const PORT = process.env.PORT || 3000;
-
-http.createServer((req, res) => {
-  res.writeHead(200, { 'Content-Type': 'text/plain' });
-  res.end('Bot de Manuales ECR activo\n');
-}).listen(PORT, () => {
-  console.log(`Servidor HTTP escuchando en el puerto ${PORT}`);
-});
-
-const app = new App({
-  token: process.env.SLACK_BOT_TOKEN,
-  signingSecret: process.env.SLACK_SIGNING_SECRET,
-  socketMode: true,
-  appToken: process.env.SLACK_APP_TOKEN,
-});
-
-function getManualContent() {
-  try {
-    const filePath = path.join(__dirname, 'manual.txt');
-    if (fs.existsSync(filePath)) {
-      return fs.readFileSync(filePath, 'utf8');
-    }
-    return "";
-  } catch (error) {
-    console.error("Error al leer el manual:", error);
-    return "";
+// 1. Cargar el manual una sola vez al iniciar el servidor (fuera de los eventos)
+let cachedManualText = "";
+try {
+  const filePath = path.join(__dirname, 'manual.txt');
+  if (fs.existsSync(filePath)) {
+    cachedManualText = fs.readFileSync(filePath, 'utf8');
   }
+} catch (error) {
+  console.error("Error al leer el manual:", error);
 }
 
-const normalizeText = (text) => {
-  return text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
-};
+// ... (configuración de app y express)
 
 app.event('app_mention', async ({ event, say }) => {
   try {
-    const manualText = getManualContent();
-    
-    // Dividimos el manual en bloques/párrafos
-    const blocks = manualText.split(/\r?\n\s*\r?\n/).filter(b => b.trim().length > 0);
-
+    const blocks = cachedManualText.split(/\r?\n\s*\r?\n/).filter(b => b.trim().length > 0);
     const stopWords = ['el', 'la', 'los', 'las', 'un', 'una', 'de', 'del', 'a', 'en', 'y', 'o', 'que', 'es', 'por', 'con', 'para', 'cuanto', 'cuantos', 'cual', 'cuales', 'donde', 'como', 'su', 'sus', 'al', 'me', 'le', 'lo', 'hacer', 'hace', 'si'];
 
     const normalizedQuery = normalizeText(event.text);
+    
+    // Detectar si el usuario busca un procedimiento u operación (ej: "que hacer", "como", "pasos")
+    const isActionQuery = /hacer|proceder|pasos|como|reportar|falla/i.test(normalizedQuery);
+
     const keywords = normalizedQuery
       .split(' ')
       .map(w => w.replace(/[^a-z0-9]/gi, ''))
@@ -57,9 +32,14 @@ app.event('app_mention', async ({ event, say }) => {
     for (const block of blocks) {
       const normalizedBlock = normalizeText(block);
       
-      // FILTRO CLAVE: Ignoramos por completo los bloques que correspondan al índice general
+      // Ignorar índices
       if (normalizedBlock.includes('indice general') || normalizedBlock.includes('indice')) {
         continue;
+      }
+
+      // FILTRO ANTITRAMPA: Si es una consulta de acción, filtramos bloques de sanciones o cláusulas punitivas
+      if (isActionQuery && (normalizedBlock.includes('clausula') || normalizedBlock.includes('terminacion') || normalizedBlock.includes('sancion'))) {
+        continue; 
       }
 
       let score = 0;
@@ -95,13 +75,3 @@ app.event('app_mention', async ({ event, say }) => {
     });
   }
 });
-
-(async () => {
-  try {
-    await app.start();
-    console.log('⚡️ El Bot de Manuales ECR inteligente está en línea!');
-  } catch (error) {
-    console.error('Error al iniciar la aplicación de Slack:', error);
-    process.exit(1);
-  }
-})();
