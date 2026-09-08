@@ -25,10 +25,10 @@ function getManualContent() {
     if (fs.existsSync(filePath)) {
       return fs.readFileSync(filePath, 'utf8');
     }
-    return "El archivo manual.txt no se encuentra en el servidor.";
+    return "";
   } catch (error) {
     console.error("Error al leer el manual:", error);
-    return "Error al cargar la información del manual.";
+    return "";
   }
 }
 
@@ -38,12 +38,17 @@ app.event('app_mention', async ({ event, say }) => {
     const manualText = getManualContent();
     const lines = manualText.split('\n');
 
-    // Limpiamos la consulta y sacamos palabras clave (incluso de 2 letras o más)
-    const keywords = userQuery.split(' ').map(w => w.replace(/[^a-záéíóúñ0-9]/gi, '')).filter(w => w.length > 1);
+    // Palabras comunes a ignorar para centrarse en lo importante
+    const stopWords = ['el', 'la', 'los', 'las', 'un', 'una', 'de', 'del', 'a', 'en', 'y', 'o', 'que', 'es', 'por', 'con', 'para', 'cuanto', 'cuantos', 'cual', 'cuales', 'donde', 'como', 'su', 'sus', 'al', 'me', 'le', 'lo'];
+
+    // Extraer solo palabras clave relevantes (mayores a 2 letras y que no sean stop words)
+    const keywords = userQuery
+      .split(' ')
+      .map(w => w.replace(/[^a-záéíóúñ0-9]/gi, ''))
+      .filter(w => w.length > 2 && !stopWords.includes(w));
 
     let matchedLines = [];
 
-    // Buscamos líneas que contengan al menos una de las palabras clave del usuario
     if (keywords.length > 0) {
       matchedLines = lines.filter(line => {
         const lowerLine = line.toLowerCase();
@@ -54,9 +59,10 @@ app.event('app_mention', async ({ event, say }) => {
     let reply = `¡Hola <@${event.user}>!\n\n`;
 
     if (matchedLines.length > 0) {
-      reply += "📌 **Esto es lo que encontré en el Manual de ECR:**\n" + matchedLines.join('\n');
+      // Muestra únicamente las líneas que coinciden de forma estricta
+      reply += matchedLines.join('\n');
     } else {
-      reply += "📄 **Aquí tienes el contenido completo del manual:**\n" + manualText;
+      reply += "⚠️ No encontré una coincidencia exacta en el manual para esa consulta. Prueba usando palabras más específicas (ej: *depósito*, *taller*, *siniestro*).";
     }
 
     await say({
