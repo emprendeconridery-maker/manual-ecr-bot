@@ -1,45 +1,49 @@
 const { App } = require('@slack/bolt');
 
+// Inicialización de la aplicación Slack Bolt en Modo Socket
 const app = new App({
-  token: "xoxb-TU-BOT-TOKEN-AQUI", // Pega aquí tu xoxb-...
-  signingSecret: "TU-SIGNING-SECRET-AQUI", // Pega aquí tu Signing Secret
+  token: process.env.SLACK_BOT_TOKEN,
+  signingSecret: process.env.SLACK_SIGNING_SECRET,
   socketMode: true,
-  appToken: "xapp-TU-APP-TOKEN-AQUI" // Pega aquí tu xapp-... (App-Level Token)
+  appToken: process.env.SLACK_APP_TOKEN,
 });
 
-const MANUAL_CHANNEL_ID = "AQUI_EL_ID_DEL_CANAL"; // Ej: C12345678
+const MANUAL_CHANNEL_ID = process.env.MANUAL_CHANNEL_ID;
 
+// Escucha menciones al bot o mensajes dirigidos
 app.event('app_mention', async ({ event, say }) => {
   try {
-    const userQuery = event.text.replace(/<@.*?>/, '').trim();
-    
-    const result = await app.client.conversations.history({
-      channel: MANUAL_CHANNEL_ID,
-      limit: 50
+    await say({
+      text: `¡Hola <@${event.user}>! Consulta recibida. Buscando información en el canal de manuales...`,
+      thread_ts: event.ts,
     });
-
-    const messages = result.messages || [];
-    const match = messages.find(msg => 
-      msg.text && msg.text.toLowerCase().includes(userQuery.toLowerCase())
-    );
-
-    if (match) {
-      await say({
-        text: `Encontré esto en el manual <#${MANUAL_CHANNEL_ID}>:\n> ${match.text}`,
-        thread_ts: event.ts
-      });
-    } else {
-      await say({
-        text: "No encontré un procedimiento exacto para esa consulta en el canal #manual-ecr.",
-        thread_ts: event.ts
-      });
-    }
   } catch (error) {
-    console.error(error);
+    console.error('Error al responder a la mención:', error);
   }
 });
 
+// Listener general para mensajes en el canal del manual
+app.message(async ({ message, say }) => {
+  // Ignora mensajes enviados por otros bots o por el propio bot
+  if (message.subtype && message.subtype === 'bot_message') return;
+
+  try {
+    // Si el mensaje ocurre en el canal de manuales configurado
+    if (message.channel === MANUAL_CHANNEL_ID) {
+      console.log(`Mensaje recibido en el canal de manuales: ${message.text}`);
+    }
+  } catch (error) {
+    console.error('Error procesando el mensaje:', error);
+  }
+});
+
+// Función principal de arranque
 (async () => {
-  await app.start();
-  console.log('⚡️ ¡Bot de Manuales ECR activo!');
+  try {
+    await app.start();
+    console.log('⚡️ El Bot de Manuales ECR está ejecutándose en Modo Socket!');
+  } catch (error) {
+    console.error('Error al iniciar la aplicación de Slack:', error);
+    process.exit(1);
+  }
 })();
