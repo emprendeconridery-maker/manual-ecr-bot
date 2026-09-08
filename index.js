@@ -32,37 +32,41 @@ function getManualContent() {
   }
 }
 
+// Función para quitar acentos y normalizar textos
+const normalizeText = (text) => {
+  return text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+};
+
 app.event('app_mention', async ({ event, say }) => {
   try {
-    const userQuery = event.text.toLowerCase();
     const manualText = getManualContent();
     const lines = manualText.split('\n');
 
-    // Palabras comunes a ignorar para centrarse en lo importante
     const stopWords = ['el', 'la', 'los', 'las', 'un', 'una', 'de', 'del', 'a', 'en', 'y', 'o', 'que', 'es', 'por', 'con', 'para', 'cuanto', 'cuantos', 'cual', 'cuales', 'donde', 'como', 'su', 'sus', 'al', 'me', 'le', 'lo'];
 
-    // Extraer solo palabras clave relevantes (mayores a 2 letras y que no sean stop words)
-    const keywords = userQuery
+    // Normalizamos la consulta del usuario (sin acentos y en minúsculas)
+    const normalizedQuery = normalizeText(event.text);
+
+    const keywords = normalizedQuery
       .split(' ')
-      .map(w => w.replace(/[^a-záéíóúñ0-9]/gi, ''))
+      .map(w => w.replace(/[^a-z0-9]/gi, ''))
       .filter(w => w.length > 2 && !stopWords.includes(w));
 
     let matchedLines = [];
 
     if (keywords.length > 0) {
       matchedLines = lines.filter(line => {
-        const lowerLine = line.toLowerCase();
-        return keywords.some(keyword => lowerLine.includes(keyword));
+        const normalizedLine = normalizeText(line);
+        return keywords.some(keyword => normalizedLine.includes(keyword));
       });
     }
 
     let reply = `¡Hola <@${event.user}>!\n\n`;
 
     if (matchedLines.length > 0) {
-      // Muestra únicamente las líneas que coinciden de forma estricta
       reply += matchedLines.join('\n');
     } else {
-      reply += "⚠️ No encontré una coincidencia exacta en el manual para esa consulta. Prueba usando palabras más específicas (ej: *depósito*, *taller*, *siniestro*).";
+      reply += "⚠️ No encontré una coincidencia exacta en el manual para esa consulta. Prueba usando palabras más específicas (ej: *deposito*, *taller*, *siniestro*).";
     }
 
     await say({
