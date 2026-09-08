@@ -1,7 +1,7 @@
 ═══════════════════════════════════════════════════════════════════════════
         MANUAL OPERATIVO – EQUIPO ATC / EMPRENDE CON RIDERY (ECR)
                      Atención al Conductor & Gestión de Flota
-═══════════════════════════════════════════════════════════════════════════
+
 
 ÍNDICE GENERAL
 ─────────────────────────────────────────────────────────────────────────
@@ -26,7 +26,7 @@
 
 ═══════════════════════════════════════════════════════════════════════════
 1. MÉTODO RIDED – PROTOCOLO DE CONTACTO
-═══════════════════════════════════════════════════════════════════════════
+
 
  R – RECIBIR   : Saludo cálido y personalizado al conductor.
  I – INDAGAR   : Comprender las necesidades de quien nos contacta.
@@ -36,7 +36,7 @@
 
 ═══════════════════════════════════════════════════════════════════════════
 2. NORMAS Y CONDUCTA DEL EQUIPO ATC
-═══════════════════════════════════════════════════════════════════════════
+
 
  2.1 PROHIBICIONES
      • Prohibido usar notas de voz o stickers en comunicaciones con
@@ -57,7 +57,7 @@
 ═══════════════════════════════════════════════════════════════════════════
 3. MARCO LEGAL Y CONTRACTUAL
    (Contrato de Cuentas en Participación y Comodato)
-═══════════════════════════════════════════════════════════════════════════
+
 
  3.1 PARTES DEL CONTRATO
      • Asociante (Operadora de App) : Desarrollos Tecnológicos Ridery, C.A.
@@ -100,7 +100,7 @@
 
 ═══════════════════════════════════════════════════════════════════════════
 4. ASPIRANTES – PROCESO DE INGRESO
-═══════════════════════════════════════════════════════════════════════════
+
 
  4.1 ACCESOS
      • Formulario oficial de postulación:
@@ -129,7 +129,7 @@
 
 ═══════════════════════════════════════════════════════════════════════════
 5. CUOTAS DIARIAS Y BONIFICACIONES
-═══════════════════════════════════════════════════════════════════════════
+
 
  5.1 PROPÓSITO
      El aporte diario se destina exclusivamente al mantenimiento preventivo
@@ -161,7 +161,6 @@
 
 ═══════════════════════════════════════════════════════════════════════════
 6. SINIESTROS – GESTIÓN DE ACCIDENTES
-═══════════════════════════════════════════════════════════════════════════
 
  6.1 PROTOCOLO GENERAL
      Priorizar la seguridad física y psicológica del conductor y pasajeros;
@@ -212,7 +211,7 @@
 
 ═══════════════════════════════════════════════════════════════════════════
 7. INGRESO A TALLER Y FALLAS MECÁNICAS
-═══════════════════════════════════════════════════════════════════════════
+
 
  7.1 PROTOCOLO DE INGRESO
      Registrar obligatoriamente en el portal de orden de ingreso:
@@ -273,7 +272,7 @@
 
 ═══════════════════════════════════════════════════════════════════════════
 8. AUXILIO VIAL – SOLICITUD DE GRÚA
-═══════════════════════════════════════════════════════════════════════════
+
 
  8.1 FLUJO OPERATIVO CON TUGRUERO
      1) Confirmar aseguradora del vehículo: Arys (La Mundial) o Seguros
@@ -312,7 +311,7 @@
 
 ═══════════════════════════════════════════════════════════════════════════
 9. MANTENIMIENTO – INSPECCIÓN DE FLOTA
-═══════════════════════════════════════════════════════════════════════════
+
 
  9.1 PROTOCOLO CONTRACTUAL (Anexo B)
      • Carros: mantenimiento preventivo cada 5.000 km; cita con 1.200 km
@@ -332,7 +331,7 @@
 
 ═══════════════════════════════════════════════════════════════════════════
 10. SALIDA DE GEOCERCA – CONTROL DE RUTA
-═══════════════════════════════════════════════════════════════════════════
+
 
  10.1 PREGUNTAS FRECUENTES
      • ¿Puede salir sin viaje en la App? No, es necesario tener un viaje
@@ -368,7 +367,7 @@
 
 ═══════════════════════════════════════════════════════════════════════════
 11. REEMBOLSOS – GASTOS Y FINANZAS
-═══════════════════════════════════════════════════════════════════════════
+
 
  11.1 CONSULTA ONLINE
      https://delightful-custard-c4e34a.netlify.app/
@@ -402,7 +401,7 @@
 
 ═══════════════════════════════════════════════════════════════════════════
 12. EMERGENCIAS SOS – PROTOCOLO CRÍTICO
-═══════════════════════════════════════════════════════════════════════════
+
 
  PRIORIDAD ABSOLUTA: Atender de inmediato.
 
@@ -417,7 +416,7 @@
 
 ═══════════════════════════════════════════════════════════════════════════
 13. GUÍA TÉCNICA DE FALLAS Y DIAGNÓSTICOS
-═══════════════════════════════════════════════════════════════════════════
+
 
  13.1 GLOSARIO DE FALLAS COMUNES
      • ESC System Fault : Sensor de pérdida de tracción por presión de
@@ -456,7 +455,7 @@
 
 ═══════════════════════════════════════════════════════════════════════════
 14. DIRECTORIO DE OFICINAS – COBERTURA NACIONAL
-═══════════════════════════════════════════════════════════════════════════
+
 
  CARACAS (Distrito Capital)
      • Base Emprende con Ridery: 24/7 activo. Recepción de vehículos con
@@ -480,7 +479,7 @@
 
 ═══════════════════════════════════════════════════════════════════════════
 15. PREGUNTAS FRECUENTES (FAQ)
-═══════════════════════════════════════════════════════════════════════════
+
 
  15.1 GRÚAS / ASISTENCIA VIAL
      P: ¿Qué hacer si se espicha un caucho?
@@ -644,7 +643,7 @@
 
 ═══════════════════════════════════════════════════════════════════════════
 16. LINKS DE INTERÉS – ACCESOS DIRECTOS
-═══════════════════════════════════════════════════════════════════════════
+
 
  Ridery Admin          : https://admin.ridery.app/dashboard
                          (Operaciones & Flota)
@@ -669,7 +668,7 @@
 
 ═══════════════════════════════════════════════════════════════════════════
 17. NOVEDADES Y ÚLTIMAS ACTUALIZACIONES
-═══════════════════════════════════════════════════════════════════════════
+
 
  17.1 ESTRUCTURA DE SINIESTROS DE FLOTA Y ENLACE LEGAL
      • Se actualizó el formulario a "Llena el formulario de siniestros" y
@@ -686,7 +685,6 @@
 
 ═══════════════════════════════════════════════════════════════════════════
 18. MATERIAL DE APOYO
-═══════════════════════════════════════════════════════════════════════════
 
  Portal oficial: https://admincx.vercel.app/material-apoyo
 
