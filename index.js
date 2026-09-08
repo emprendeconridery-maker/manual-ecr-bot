@@ -1,10 +1,11 @@
 const { App } = require('@slack/bolt');
 const http = require('http');
+const fs = require('fs');
+const path = require('path');
 
-// Puerto dinámico asignado por Render o por defecto 3000
 const PORT = process.env.PORT || 3000;
 
-// Servidor HTTP simple para cumplir con el requisito de puertos de Render
+// Servidor HTTP simple para mantener el puerto activo en Render
 http.createServer((req, res) => {
   res.writeHead(200, { 'Content-Type': 'text/plain' });
   res.end('Bot de Manuales ECR activo\n');
@@ -12,7 +13,6 @@ http.createServer((req, res) => {
   console.log(`Servidor HTTP escuchando en el puerto ${PORT}`);
 });
 
-// Inicialización de la aplicación Slack Bolt en Modo Socket
 const app = new App({
   token: process.env.SLACK_BOT_TOKEN,
   signingSecret: process.env.SLACK_SIGNING_SECRET,
@@ -20,25 +20,17 @@ const app = new App({
   appToken: process.env.SLACK_APP_TOKEN,
 });
 
-// Función mejorada para obtener y depurar el contenido del Canvas del canal
-async function getCanvasContent(channelId) {
+// Función para leer el manual localmente
+function getManualContent() {
   try {
-    const result = await app.client.conversations.canvases.get({
-      channel_id: channelId,
-    });
-    
-    // Imprimimos la estructura completa en los logs de Render para inspeccionarla
-    console.log("Estructura del Canvas recibida:", JSON.stringify(result, null, 2));
-
-    const canvasData = result.canvas;
-    if (canvasData && canvasData.document_content) {
-      return canvasData.document_content; 
+    const filePath = path.join(__dirname, 'manual.txt');
+    if (fs.existsSync(filePath)) {
+      return fs.readFileSync(filePath, 'utf8');
     }
-    
-    return result.canvas?.content?.markdown || JSON.stringify(result, null, 2);
+    return "El archivo manual.txt aún no ha sido creado en el servidor.";
   } catch (error) {
-    console.error("Error detallado al leer el Canvas:", error);
-    return "No se pudo extraer la información del Canvas. Revisa los logs de Render para más detalles.";
+    console.error("Error al leer el manual:", error);
+    return "Error al cargar la información del manual.";
   }
 }
 
@@ -46,12 +38,30 @@ async function getCanvasContent(channelId) {
 app.event('app_mention', async ({ event, say }) => {
   try {
     const userQuery = event.text.toLowerCase();
+    const manualText = getManualContent();
     
-    // Obtenemos el contenido actualizado del Canvas del canal
-    const canvasText = await getCanvasContent(event.channel);
+    // Separamos el manual en párrafos o líneas para buscar coincidencias relevantes
+    const lines = manualText.split('\n');
+    let matchedLines = [];
 
-    let reply = `¡Hola <@${event.user}>! Basándome en el Manual de ECR:\n\n`;
-    reply += canvasText;
+    // Buscador inteligente por palabras clave de la pregunta del usuario
+    const keywords = userQuery.split(' ').filter(word => word.length > 3); // Ignora palabras muy cortas
+    
+    if (keywords.length > 0) {
+      matchedLines = lines.filter(line => {
+        const lowerLine = line.toLowerCase();
+        return keywords.some(keyword => lowerLine.includes(keyword));
+      });
+    }
+
+    let reply = `¡Hola <@${event.user}>! Analizando tu consulta:\n\n`;
+
+    if (matchedLines.length > 0) {
+      reply += "📌 **Esto es lo que encontré en el Manual de ECR para ti:**\n" + matchedLines.join('\n');
+    } else {
+      // Si no encuentra una coincidencia exacta, muestra una sección general o el manual completo resumido
+      reply += "⚠️ No encontré una coincidencia exacta con esas palabras. Aquí tienes un extracto general del manual:\n" + lines.slice(0, 15).join('\n');
+    }
 
     await say({
       text: reply,
@@ -60,17 +70,16 @@ app.event('app_mention', async ({ event, say }) => {
   } catch (error) {
     console.error('Error al responder a la mención:', error);
     await say({
-      text: "Hubo un pequeño error procesando tu consulta con el manual.",
+      text: "Hubo un error procesando tu solicitud.",
       thread_ts: event.ts,
     });
   }
 });
 
-// Función principal de arranque
 (async () => {
   try {
     await app.start();
-    console.log('⚡️ El Bot de Manuales ECR está ejecutándose en Modo Socket!');
+    console.log('⚡️ El Bot de Manuales ECR inteligente está en línea!');
   } catch (error) {
     console.error('Error al iniciar la aplicación de Slack:', error);
     process.exit(1);
